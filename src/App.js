@@ -1,28 +1,28 @@
-import logo from "./logo.svg";
 import "./App.css";
+
+import { TodoCounter } from "./TodoCounter";
+import { TodoItem } from "./TodoItem";
+import { TodoList } from "./TodoList";
+import { TodoSearch } from "./TodoSearch";
 
 function App() {
   return (
     <div className="App">
-      <TodoCounter/>
-      <TodoSearch/>
-      
-         
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      <TodoCounter />
+      <TodoSearch />
+
+      <TodoList>
+        <TodoItemem />
+        <TodoItem />
+        <TodoItem />
+      </TodoList>
+
+      {/* <CreateTodoButton/> */}
     </div>
   );
 }
 
-function TodoItem() {
-  return (
-    <li>
-      <span>v</span>
-      <p>Vender</p>
-      <spna>x</spna>
-    </li>
-  );
-}
+
+
 
 export default App;
