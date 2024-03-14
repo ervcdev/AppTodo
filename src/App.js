@@ -1,24 +1,32 @@
 import "./App.css";
-
+import { CreateTodoButton } from "./CreateTodoButton";
 import { TodoCounter } from "./TodoCounter";
 import { TodoItem } from "./TodoItem";
 import { TodoList } from "./TodoList";
 import { TodoSearch } from "./TodoSearch";
+import React from 'react'
+
+const defaultTodos = [
+  {text: "mirar", completed:false },
+  {text: "zapatos", completed:true },
+  {text: "verde", completed:true },
+  {text: "tres", completed: true}
+]
 
 function App() {
   return (
-    <div className="App">
-      <TodoCounter />
+    <React.Fragment>
+      <TodoCounter completed={16} total={25}/>
       <TodoSearch />
 
       <TodoList>
-        <TodoItemem />
+        <TodoItem />
         <TodoItem />
         <TodoItem />
       </TodoList>
 
-      {/* <CreateTodoButton/> */}
-    </div>
+       <CreateTodoButton/> 
+    </React.Fragment>
   );
 }
 
