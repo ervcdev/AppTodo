@@ -5,17 +5,6 @@ import { TodoList } from "./TodoList";
 import { TodoSearch } from "./TodoSearch";
 import React from "react";
 
-/* const defaultTodos = [
-  { text: "mirar", completed: false },
-  { text: "zapatos", completed: true },
-  { text: "verde", completed: true },
-  { text: "tres", completed: true },
-];
-
-localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos)); */
-
-
-
 function App() {
 
   const localStorageTodos = localStorage.getItem('TODOS_V1');
@@ -44,13 +33,18 @@ function App() {
     }
   );
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+    setTodos(newTodos)
+  }
+
   const completeTodo = (text) => { 
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
       (todo) => todo.text === text
     );
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   const deleteTodo = (text) => { 
@@ -59,7 +53,7 @@ function App() {
       (todo) => todo.text === text
     );
     newTodos.splice(todoIndex,1);
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
 
