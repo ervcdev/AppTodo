@@ -5,16 +5,32 @@ import { TodoList } from "./TodoList";
 import { TodoSearch } from "./TodoSearch";
 import React from "react";
 
-const defaultTodos = [
+/* const defaultTodos = [
   { text: "mirar", completed: false },
   { text: "zapatos", completed: true },
   { text: "verde", completed: true },
   { text: "tres", completed: true },
 ];
 
+localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos)); */
+
+
+
 function App() {
 
-  const [todos, setTodos] = React.useState(defaultTodos)
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1',JSON.stringify([]));
+    parsedTodos = []
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+
+  const [todos, setTodos] = React.useState(parsedTodos)
   const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter(todo => !!todo.completed).length ;
