@@ -1,4 +1,5 @@
 import React from "react";
+
 function useLocalStorage(itemName, initialValue) {
   const [item, setItem] = React.useState(initialValue);
 
@@ -24,7 +25,7 @@ function useLocalStorage(itemName, initialValue) {
         setLoading(false)
         setError(error)
       }
-    }, 5000);
+    }, 4000);
   },[]);
 
   const saveItem = (newItem) => {
