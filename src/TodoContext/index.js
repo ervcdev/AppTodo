@@ -1,9 +1,9 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 const TodoContext =  React.createContext();
 
-function TodoProvider() {
+function TodoProvider({children}) {
 
     const {
         item:todos, 
@@ -55,7 +55,7 @@ function TodoProvider() {
             completeTodo,
             deleteTodo,
         }}>
-            {Children}
+            {children}
         </TodoContext.Provider>
     )
 

@@ -1,4 +1,4 @@
-import { TodoProvider } from "../TodoContext/index.js";
+import { TodoProvider } from "../TodoContext";
 import { AppUI } from "./AppUI.js";
 import React from "react";
 
