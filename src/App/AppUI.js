@@ -8,6 +8,7 @@ import { TodoSearch } from "../TodoSearch";
 import { TodosError } from "../TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../EmptyTodos";
+import {TodoForm} from "../TodoForm"
 import { Modal } from "../Modal";
 function AppUI() {
   const { 
@@ -44,7 +45,11 @@ function AppUI() {
       <CreateTodoButton 
         setOpenModal={setOpenModal}
       />
-      {openModal && (<Modal>La funcionalidad</Modal>)}
+      {openModal && (
+        <Modal>
+          <TodoForm/>
+        </Modal>
+      )}
     </>
   );
 }
