@@ -1,13 +1,12 @@
 import "./CreateTodoButton.css"
-function CreateTodoButton() {
+function CreateTodoButton({setOpenModal}) {
     return (
         <button 
         className="CreateTodoButton" 
-        onClick={
-            (event) => {
-                console.log('Dio click')
-                console.log(event.target);  
-         }
+        onClick={ ()=> {
+            setOpenModal(state => !state)
+        }
+         
         } 
         >+</button>
     )
