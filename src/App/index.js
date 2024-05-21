@@ -11,6 +11,7 @@ import { EmptyTodos } from "../EmptyTodos";
 import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
+import { EmptySearch } from "../EmptyTodos/EmptySearch";
 
 function App() {
   const {
@@ -30,7 +31,8 @@ function App() {
 
   return (
     <>
-      <TodoHeader>
+      <TodoHeader
+       setSearchValue={setSearchValue}>
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
@@ -40,23 +42,37 @@ function App() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        
+       
         
         //render props
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
-        render={(todo) => (
-              <TodoItem
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              />
+        onEmptySearchTodos={(searchText) => <EmptySearch searchText={searchValue}/>}
+
+        //  render={todo => (
+        //       <TodoItem
+        //         key={todo.text}
+        //         text={todo.text}
+        //         completed={todo.completed}
+        //         onComplete={() => completeTodo(todo.text)}
+        //         onDelete={() => deleteTodo(todo.text)}
+        //       />
+        // )}  
+
+      >
+        {todo =>  (
+           <TodoItem
+           key={todo.text}
+           text={todo.text}
+           completed={todo.completed}
+           onComplete={() => completeTodo(todo.text)}
+           onDelete={() => deleteTodo(todo.text)}
+         />
         )}
-      />
-
-
+         </TodoList> 
 
       {!!openModal && (
         <Modal>
