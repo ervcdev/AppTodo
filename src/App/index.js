@@ -22,8 +22,8 @@ function App() {
     deleteTodo,
     openModal,
     setOpenModal,
-    totalTodos,
     completedTodos,
+    totalTodos,
     searchValue,
     setSearchValue,
     addTodo,
@@ -32,9 +32,21 @@ function App() {
   return (
     <>
       <TodoHeader
-       setSearchValue={setSearchValue}>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+       setSearchValue={setSearchValue}
+        loading={loading}
+       >
+
+        <TodoCounter 
+          totalTodos={totalTodos} 
+          completedTodos={completedTodos} 
+          
+          />
+
+        <TodoSearch 
+          searchValue={searchValue} 
+          setSearchValue={setSearchValue} 
+          
+          />
       </TodoHeader>
 
       <TodoList

@@ -1,18 +1,20 @@
-import React from "react";
-import { TodoCounter } from "../TodoCounter";
-import {TodoSearch} from "../TodoSearch";
+  import React from 'react';
 
-function TodoHeader({
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-}) {
-  return(  
-  <header>
-    <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-    <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-  </header>)
-}
+  function TodoHeader({ children,loading }) {
+    return (
+      <header>
+       { 
+        React.Children
+        .toArray(children)
+        .map( child => 
+          React.cloneElement(child, {loading}) 
+        )  
+      }; 
+      
+  
+        
+      </header>
+    );
+  }
 
-export { TodoHeader };
+  export { TodoHeader };

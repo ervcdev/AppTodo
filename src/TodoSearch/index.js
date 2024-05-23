@@ -3,7 +3,8 @@ import "./TodoSearch.css";
 
 function TodoSearch({   
    searchValue,
-  setSearchValue
+  setSearchValue,
+  loading
 }) {
 
   return (
@@ -11,10 +12,10 @@ function TodoSearch({
       className="TodoSearch"
       placeholder="buscar"
       value={searchValue}
+      disabled={loading}
       onChange={(event) => {
-        console.log("busco");
         setSearchValue(event.target.value);
-        console.log("despued", event.target.value);
+      
       }}
     />
   );
