@@ -10,8 +10,7 @@
           React.cloneElement(child, {loading}) 
         )  
       }; 
-      
-  
+
         
       </header>
     );
